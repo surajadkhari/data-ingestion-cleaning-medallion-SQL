@@ -111,6 +111,7 @@ Third Step
 
 
 */
+
 drop table if exists customer
 create table customer
 (
@@ -129,3 +130,28 @@ Occupation varchar(100),
 HomeOwner varchar(100),
 sourcefile varchar(100)
 )
+
+select * from customer
+insert into customer
+select
+	CustomerKey,
+	Prefix,
+	FirstName,
+	LastName,
+	BirthDate,
+	MaritalStatus,
+	Gender,
+	EmailAddress ,
+	replace(replace(Salary,'$',''),',','') as Salary,
+	TotalChildren,
+	EducationLevel,
+	Occupation,
+	HomeOwner,
+	sourcefile
+     from customerClean
+
+select '$5000,$2000'
+select replace('$5000,$2000','$','')
+select replace(replace('$5000,$2000','$',''),',','')
+
+select* from customer
