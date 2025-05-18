@@ -102,3 +102,30 @@ from  customerTempo
 select * from customerClean
 
 
+
+
+/*
+Third Step
+--Change Datatype
+
+
+
+*/
+drop table if exists customer
+create table customer
+(
+CustomerKey bigint,
+Prefix varchar(100),
+FirstName varchar(100),
+LastName varchar(100),
+BirthDate date,
+MaritalStatus varchar(100),
+Gender varchar(100),
+EmailAddress varchar(100),
+Salary int,
+TotalChildren varchar(100),
+EducationLevel varchar(100),
+Occupation varchar(100),
+HomeOwner varchar(100),
+sourcefile varchar(100)
+)
