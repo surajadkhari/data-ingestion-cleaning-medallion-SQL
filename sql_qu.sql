@@ -154,4 +154,5 @@ select '$5000,$2000'
 select replace('$5000,$2000','$','')
 select replace(replace('$5000,$2000','$',''),',','')
 
-select* from customer
+select top 10* from customer
+order by Salary desc
