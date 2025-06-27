@@ -59,6 +59,7 @@ Trimming whitespace
 Dropping null-heavy columns
 
 Renaming columns for clarity
+
 */
 
 declare @sourcefile varchar(200)
@@ -119,9 +120,9 @@ CustomerKey bigint,
 Prefix varchar(100),
 FirstName varchar(100),
 LastName varchar(100),
-BirthDate date,
+BirthDate Date,
 MaritalStatus varchar(100),
-Gender varchar(100),
+Gender varchar(100) check (Gender in ('M','F','NA')),
 EmailAddress varchar(100),
 Salary int,
 TotalChildren varchar(100),
@@ -131,7 +132,9 @@ HomeOwner varchar(100),
 sourcefile varchar(100)
 )
 
-select * from customer
+
+
+
 insert into customer
 select
 	CustomerKey,
