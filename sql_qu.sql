@@ -159,3 +159,32 @@ select replace(replace('$5000,$2000','$',''),',','')
 
 select top 10* from customer
 order by Salary desc
+--occupation wise toal salary
+
+select sum(Salary) AS TotalSalary,AVG(Salary) AS AverageSAlary,Occupation
+from customer
+group by Occupation
+
+
+
+--Use window function to integrate aggregated function with main able
+
+
+---total salary (partition by column order column name)
+select sum(salary) over
+(partition by occupation) as totalSalary,*,
+ROW_NUMBER() over(order by birthdate desc)
+
+from customer
+
+--ADD AGe COlumn
+ALTER Table Customer
+ADD Age AS
+  DATEDIFF(Year,BirthDate,GetDate())-
+  Case
+   WHEN MOnth(BirthDate)>Month(GetDate())
+   OR (Month(BirthDate)=Month(GETDATE()) AND DAY(Birthdate)>DAy(GETDATE())
+   )
+   THEN 1 ELSE 0
+   END;
+   select * from customer
